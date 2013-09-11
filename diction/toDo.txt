@@ -1,0 +1,11 @@
+'''
+
+A login.
+A shell system.
+A explorer system (If done well enough, you can disable your own explorer process at startup and execute your own.)
+A desktop window.
+A web browser. (A project in and of itself.)
+A plain text editor. (Another individual project.)
+A control panel/system configuration set of utilities.
+
+'''

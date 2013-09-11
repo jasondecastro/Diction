@@ -9,12 +9,10 @@
 # Licence:     GNU/Diction 3.0.0-12-generic i686
 #-------------------------------------------------------------------------------
 
-import getpass, time, subprocess, sqlite3
-from controllers.operator import *
+DIR: /users
+------------
 
-def main():
-    obj = Login()
-    obj.login()
+** DO NOT ALTER ANY FILES IN THIS DIRECTORY (/users).
 
-if __name__ == '__main__':
-    main()
+   Disclaimer:
+   Unless you know what you are doing.

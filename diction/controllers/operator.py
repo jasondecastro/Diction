@@ -53,7 +53,9 @@ class Login():
             else:
                 timer = datetime.datetime.now()
                 time_at_login = str(timer.strftime("%Y-%m-%d %H:%M"))
-                cursor.execute("UPDATE users SET last_login = '%s' WHERE username = '%s'" % (time_at_login, self.usr))
+                for i in time_at_login:
+                    cursor.execute("UPDATE users SET last_login = '%s' WHERE username = '%s'" % (time_at_login, self.usr))
+
                 conn.commit()
                 time.sleep(2)
                 obj = Welcome()
@@ -70,7 +72,7 @@ class Welcome(Login):
         print("Last login: %s" % data) #PUT DATA THERE <
         print("Welcome to %s %s (GNU/Diction)\n" % (OS_NAME, OS_VER))
         print(" * Documentation:  %s\n" % DOC_URL)
-        print('71 updates are available.')
+        print('No updates are available.') #make this show the actual updates available from the website
         print()
         print(copyleft)
         print()
@@ -109,7 +111,7 @@ class Users(Login):
 #-----------------------REALLY COMPLICATED AND LONG KERNEL CODE-----------------
 class Kernel(Login):
     #LIST OF COMMANDS:
-    commands = ['help', 'create', 'logout']
+    commands = ['help', 'create', 'logout', 'commands']
     create_commands = ['user']
     help_info = '''
 Diction 1.02 is an operating system emulator for educational purposes.
@@ -136,6 +138,7 @@ Below is a list of commands you are currently able to use:
             if kernel_input == commands[0]:
                 print(help_info)
                 kernel_input
+            #---------------------------------
             elif kernel_input == commands[1]:
                 print("Create: user")
                 create_input = input("create>")
@@ -144,9 +147,15 @@ Below is a list of commands you are currently able to use:
                     usr_obj.create_user()
                 else:
                     kernel_input
+            #---------------------------------
             elif kernel_input == commands[2]:
                 logout_obj = Logout()
                 logout_obj.logout()
+            #---------------------------------
+            elif kernel_input == commands[3]:
+                print("t")
+                kernel_input
+            #---------------------------------
             else:
                 kernel_input
 #---------------------------------LOGOUT STUFF----------------------------------

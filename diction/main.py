@@ -6,7 +6,7 @@
 #
 # Created:     07/09/2013
 # Copyright:   (c) Jason Decastro 2013
-# Licence:     GNU/Diction 3.0.0-12-generic i686
+# Licence:     GNU/Diction
 #-------------------------------------------------------------------------------
 
 import getpass, time, subprocess, sqlite3
